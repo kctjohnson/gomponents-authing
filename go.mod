@@ -10,5 +10,6 @@ require (
 
 require (
 	github.com/jmoiron/sqlx v1.3.5 // indirect
+	github.com/maragudk/gomponents-htmx v0.4.0
 	golang.org/x/crypto v0.16.0
 )

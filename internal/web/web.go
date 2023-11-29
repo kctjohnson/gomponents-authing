@@ -46,6 +46,7 @@ func Page(authed bool, title, path string, body g.Node) g.Node {
 		Language: "en",
 		Head: []g.Node{
 			html.Script(html.Src("https://cdn.tailwindcss.com?plugins=typography")),
+			html.Script(html.Src("https://unpkg.com/htmx.org")),
 		},
 		Body: []g.Node{
 			components.Navbar(path, startLinks, endLinks),

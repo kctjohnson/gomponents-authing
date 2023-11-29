@@ -4,8 +4,8 @@ import (
 	"authing/internal/db/models"
 	"authing/internal/repositories"
 	"authing/internal/web"
+	"authing/internal/web/components"
 	"database/sql"
-	"fmt"
 
 	g "github.com/maragudk/gomponents"
 	"github.com/maragudk/gomponents/html"
@@ -24,9 +24,7 @@ func UsersPage(accRepo *repositories.Accounts) (string, web.BodyFunc) {
 			html.H1(g.Text("Users")),
 			g.Group(
 				g.Map(accs, func(a models.Account) g.Node {
-					return html.P(
-						g.Text(fmt.Sprintf("%d | %s | %s", a.ID, a.Username, a.Password)),
-					)
+					return components.AuthedUserView(a)
 				}),
 			),
 		)

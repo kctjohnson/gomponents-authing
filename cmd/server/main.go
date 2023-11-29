@@ -52,10 +52,13 @@ func main() {
 	mux.Handle("/user/adminpanel", app.createProtectedHandler(user.AdminPanelPage()))
 	mux.Handle("/user/users", app.createProtectedHandler(user.UsersPage(app.AccountsRepo)))
 
-	// API routes
+	// Auth routes
 	mux.HandleFunc("/auth/register", app.Register)
 	mux.HandleFunc("/auth/login", app.Login)
 	mux.HandleFunc("/auth/logout", app.Logout)
+
+	// API routes
+	mux.HandleFunc("/api/delete", app.Delete)
 
 	// Start the server, wrapping the mux handler in the session manager
 	fmt.Printf("Starting server on 8081\n")
